@@ -80,17 +80,32 @@ echo ""
 echo "Do you want to use bash or zsh[bash/zsh]:"
 read change_shell
 usermod --shell /bin/$change_shell root
-echo "# some more ls aliases
-alias ll='ls -l'
-alias la='ls -A'
-alias l='ls -CF'
-alias nmap='grc nmap'
-alias ping='grc ping'
-alias tail='grc tail'
-alias ps='grc ps'
-alias traceroute='grc traceroute'
-alias netstat='grc netstat'
-alias srn='systemctl restart NetworkManager'" | tee ~/.${change_shell}rc
+if [ "$change_shell" = "bash" ];
+then
+        echo "# some more aliases
+        alias ll='ls -l'
+        alias la='ls -A'
+        alias l='ls -CF'
+        alias nmap='grc nmap'
+        alias ping='grc ping'
+        alias tail='grc tail'
+        alias ps='grc ps'
+        alias traceroute='grc traceroute'
+        alias netstat='grc netstat'
+        alias srn='systemctl restart NetworkManager'" | tee ~/.bashrc
+else
+        echo "# some more aliases
+        alias ll='ls -l'
+        alias la='ls -A'
+        alias l='ls -CF'
+        alias nmap='grc nmap'
+        alias ping='grc ping'
+        alias tail='grc tail'
+        alias ps='grc ps'
+        alias traceroute='grc traceroute'
+        alias netstat='grc netstat'
+        alias srn='systemctl restart NetworkManager'" | tee ~/.zshrc
+fi
 echo ""
 echo "Do you want to install snap[y/n]:"
 read install_snap
