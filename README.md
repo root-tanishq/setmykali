@@ -1,7 +1,7 @@
 # setmykali
 This script will setup small things after new kali installation
-# it saves time
-### Installation
+### it saves time
+# Installation
 ```
 git clone https://github.com/root-tanishq/setmykali
 ```
