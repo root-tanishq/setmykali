@@ -35,7 +35,7 @@ read install_bat
 if [ "$install_bat" = "y" ];
 then
         bat_thresh="@reboot     root    echo 80 > /sys/class/power_supply/BAT1/charge_control_end_threshold"
-        echo $bat_thresh | tee /etc/crontab
+        echo $bat_thresh | tee -a /etc/crontab
         unset bat_thresh
 else
         echo "battery threshold aborted"
@@ -62,20 +62,36 @@ read scroll_mouse
 if [ "$scroll_mouse" = "y" ];
 then
         apt install imwheel -y
-        echo "".*"
+        echo '".*"
 None,      Up,   Button4, 3
 None,      Down, Button5, 3
 Control_L, Up,   Control_L|Button4
 Control_L, Down, Control_L|Button5
 Shift_L,   Up,   Shift_L|Button4
-Shift_L,   Down, Shift_L|Button5" > ~/.imwheelrc
+Shift_L,   Down, Shift_L|Button5' > ~/.imwheelrc
         imwheel -b "4 5"
-        echo '@reboot     root    imwheel -b "4 5"' | tee /etc/crontab
+        echo '@reboot     root    imwheel -b "4 5"' | tee -a /etc/crontab
 else
         echo "Mouse scroll speed task aborted"
 fi
 unset scroll_mouse
- echo ""
+apt install grc -y 
+echo ""
+echo "Do you want to use bash or zsh[bash/zsh]:"
+read change_shell
+usermod --shell /bin/$change_shell root
+echo "# some more ls aliases
+alias ll='ls -l'
+alias la='ls -A'
+alias l='ls -CF'
+alias nmap='grc nmap'
+alias ping='grc ping'
+alias tail='grc tail'
+alias ps='grc ps'
+alias traceroute='grc traceroute'
+alias netstat='grc netstat'
+alias srn='systemctl restart NetworkManager'" | tee -a ~/.${change_shell}rc
+echo ""
 echo "Do you want to install snap[y/n]:"
 read install_snap
 if [ "$install_snap" = "y" ];
