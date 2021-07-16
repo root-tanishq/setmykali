@@ -34,9 +34,16 @@ echo "Do you want to add battery threshold(only for laptop)[y/n]:"
 read install_bat
 if [ "$install_bat" = "y" ];
 then
-        bat_thresh="@reboot     root    echo 80 > /sys/class/power_supply/BAT1/charge_control_end_threshold"
-        echo $bat_thresh | tee -a /etc/crontab
-        unset bat_thresh
+        if [ -d sys/class/power_supply/BAT1 ];
+        then
+                bat_thresh="@reboot     root    echo 80 > /sys/class/power_supply/BAT1/charge_control_end_threshold"
+                echo $bat_thresh | tee -a /etc/crontab
+                unset bat_thresh
+        else
+                bat_thresh="@reboot     root    echo 80 > /sys/class/power_supply/BAT0/charge_control_end_threshold"
+                echo $bat_thresh | tee -a /etc/crontab
+                unset bat_thresh 
+        fi
 else
         echo "battery threshold aborted"
 fi
@@ -80,10 +87,7 @@ echo ""
 echo "Do you want to use bash or zsh[bash/zsh]:"
 read change_shell
 usermod --shell /bin/$change_shell root
-echo "# some more ls aliases
-alias ll='ls -l'
-alias la='ls -A'
-alias l='ls -CF'
+echo "# some more aliases
 alias nmap='grc nmap'
 alias ping='grc ping'
 alias tail='grc tail'
