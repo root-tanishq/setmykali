@@ -32,3 +32,4 @@ while True:
         break
     else:
         print(f'{bcolors.FAIL}Please enter from any two options{bcolors.ENDC}')
+os.system('apt update')
