@@ -7,7 +7,7 @@ This script will add kali repository in any debian distribution
 git clone https://github.com/root-tanishq/setmykali
 ```
 ```
-cd secdeb
+cd setmykali/secdeb/
 ```
 ```
 chmod +x secdeb.py
