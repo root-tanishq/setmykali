@@ -25,10 +25,10 @@ while True:
     print(f"2> Fast russian repository{bcolors.ENDC}")
     var1 = int(input("Please Enter[1 or 2]:- "))
     if var1 == 1:
-        os.system('deb [trusted=true] https://http.kali.org/kali kali-rolling main contrib non-free')
+        os.system('echo "deb [trusted=true] https://http.kali.org/kali kali-rolling main contrib non-free" | tee -a /etc/apt/sources.list')
         break
     elif var1 == 2:
-        os.system('deb [trusted=yes] https://mirror-1.truenetwork.ru/kali kali-rolling main contrib non-free')
+        os.system('echo "deb [trusted=yes] https://mirror-1.truenetwork.ru/kali kali-rolling main contrib non-free" | tee -a /etc/apt/sources.list')
         break
     else:
         print(f'{bcolors.FAIL}Please enter from any two options{bcolors.ENDC}')
