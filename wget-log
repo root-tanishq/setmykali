@@ -1,0 +1,11 @@
+--2022-04-06 18:24:10--  https://raw.githubusercontent.com/root-tanishq/setmykali/main/setmykali.sh
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.109.133, 185.199.108.133, 185.199.110.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.109.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 64240 (63K) [text/plain]
+Saving to: ‘/usr/local/bin/setmykali’
+
+/usr/local/bin/setmykali                         0%[                                                                                                     ]       0  --.-KB/s               /usr/local/bin/setmykali                       100%[====================================================================================================>]  62.73K  --.-KB/s    in 0.01s   
+
+2022-04-06 18:24:11 (4.16 MB/s) - ‘/usr/local/bin/setmykali’ saved [64240/64240]
+

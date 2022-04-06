@@ -14,7 +14,9 @@ second way and recommended way to use SetMyKali is via interactive mode
 
 # Installation
 ```bash
-$(wget https://raw.githubusercontent.com/root-tanishq/setmykali/main/setup.sh -O /tmp/smk_setup.sh ; bash /tmp/smk_setup.sh)
+git clone https://github.com/root-tanishq/setmykali
+cd setmykali
+bash setup.sh
 ```
 
 # Creator and Contributor
