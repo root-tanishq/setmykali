@@ -1,5 +1,9 @@
+<div align="center">
+  
 # SetMyKali
 
+<div align="left">
+  
 SetMyKali is a bash based tool to configure and customize kali linux
 
 ## Usage 
@@ -14,9 +18,7 @@ second way and recommended way to use SetMyKali is via interactive mode
 
 # Installation
 ```bash
-git clone https://github.com/root-tanishq/setmykali
-cd setmykali
-bash setup.sh
+curl https://raw.githubusercontent.com/root-tanishq/setmykali/main/setup.sh | bash
 ```
 
 # Creator and Contributor
